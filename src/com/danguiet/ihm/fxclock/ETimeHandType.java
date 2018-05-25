@@ -1,4 +1,4 @@
-package fxclock;
+package com.danguiet.ihm.fxclock;
 
 public enum ETimeHandType {
 	

@@ -1,4 +1,4 @@
-package fxclock;
+package com.danguiet.ihm.fxclock;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

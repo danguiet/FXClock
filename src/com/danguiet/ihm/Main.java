@@ -1,6 +1,7 @@
 package com.danguiet.ihm;
 
-import fxclock.Clock;
+import com.danguiet.ihm.fxclock.Clock;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

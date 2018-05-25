@@ -1,4 +1,4 @@
-package fxclock;
+package com.danguiet.ihm.fxclock;
 
 import java.util.Calendar;
 
@@ -36,7 +36,7 @@ public class TimeHand extends Line {
 		case MINUTE:
 			length = myDial.getRadius() * 0.95d;
 			width = length * 0.04;
-			initialAngle = initialInstant.get(Calendar.MINUTE) * 6.0d;
+			initialAngle = initialInstant.get(Calendar.MINUTE) * 6.0d + initialInstant.get(Calendar.SECOND)*0.1d;
 			color = Color.WHITE;
 			break;
 		case HOUR:
