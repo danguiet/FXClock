@@ -8,26 +8,29 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
+import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 
 public class Clock extends Group {
 
 	private Calendar initialInstant;
-	
+
 	private Double clockRadius;
-	
+	private Paint color;
+
 	private Dial dial;
 
 	private TimeHand secondHand;
 	private TimeHand minuteHand;
 	private TimeHand hourHand;
 
-	public Clock(Double clockRadius) {
+	public Clock(Double clockRadius, Paint color) {
 		super();
 		this.clockRadius = clockRadius;
+		this.color = color;
 		initialInstant = GregorianCalendar.getInstance();
 
-		dial = new Dial(clockRadius);
+		dial = new Dial(clockRadius, color);
 
 		secondHand = new TimeHand(dial, ETimeHandType.SECOND, initialInstant);
 		minuteHand = new TimeHand(dial, ETimeHandType.MINUTE, initialInstant);

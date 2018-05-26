@@ -2,7 +2,6 @@ package com.danguiet.ihm.fxclock;
 
 import java.util.Calendar;
 
-import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
@@ -26,23 +25,22 @@ public class TimeHand extends Line {
 		this.type = type;
 		this.initialInstant = initialInstant;
 
+		color = myDial.getColor();
+
 		switch (type) {
 		case SECOND:
-			length = myDial.getRadius() * 0.95d;
+			length = (myDial.getRadius() - myDial.getDialWidth()) * 0.99d;
 			width = length * 0.015;
 			initialAngle = initialInstant.get(Calendar.SECOND) * 6.0d;
-			color = Color.RED;
 			break;
 		case MINUTE:
-			length = myDial.getRadius() * 0.95d;
+			length = (myDial.getRadius() - myDial.getDialWidth()) * 0.95d;
 			width = length * 0.04;
-			initialAngle = initialInstant.get(Calendar.MINUTE) * 6.0d + initialInstant.get(Calendar.SECOND)*0.1d;
-			color = Color.WHITE;
+			initialAngle = initialInstant.get(Calendar.MINUTE) * 6.0d + initialInstant.get(Calendar.SECOND) * 0.1d;
 			break;
 		case HOUR:
-			length = myDial.getRadius() * 0.75d;
+			length = (myDial.getRadius() - myDial.getDialWidth()) * 0.75d;
 			width = length * 0.07;
-			color = Color.WHITE;
 			initialAngle = initialInstant.get(Calendar.HOUR) * 30.0d + initialInstant.get(Calendar.MINUTE) * 0.5d;
 			break;
 		}
@@ -55,8 +53,10 @@ public class TimeHand extends Line {
 		setStroke(color);
 		setStrokeWidth(width);
 
+		
 		rotateTransform = new Rotate(0, myDial.getCenterX(), myDial.getCenterY());
 		getTransforms().add(rotateTransform);
+		
 	}
 
 	public Rotate getRotateTransform() {
